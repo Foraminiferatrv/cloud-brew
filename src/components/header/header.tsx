@@ -27,7 +27,7 @@ export function Header() {
   };
 
   return (
-    <header className="header relative z-10 flex h-12 justify-center bg-bg_1 text-white">
+    <header className="header relative z-10 flex h-12 justify-center bg-bg_1 text-white shadow-md">
       <div className="header_inner mx-auto flex w-full max-w-screen-xl items-center justify-between px-12">
         <Link href={ROUTES.BREWS} className="logo">
           <Logo className="h-8" />

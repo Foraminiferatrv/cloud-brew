@@ -1,4 +1,4 @@
-import BgLogo from "@/components/header/components/bg-logo/bg-logo";
+import BgLogo from "@/components/global/bg-logo/bg-logo";
 
 export default function RootLayout({
   children,
@@ -6,10 +6,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="size-full bg-main">
-      <section className="relative mx-auto max-w-screen-xl px-12 py-3 overflow-y-auto">
+    <div className="size-full bg-white">
+      <BgLogo />
+      <section className="relative mx-auto max-w-screen-xl overflow-y-auto px-12 py-4">
         {children}
-        <BgLogo />
       </section>
     </div>
   );

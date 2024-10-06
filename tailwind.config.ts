@@ -25,13 +25,13 @@ const config: Config = {
       },
 
       boxShadow: {
-        neo: "4px 4px 9px #001b36, -4px -4px 9px #002348",
-        ["neo-light"]: "8px 8px 20px #376885,-8px -8px 20px #3d7293",
+        neo: "4px 4px 9px #e3e5e5, -4px -4px 9px  #ffffff",
         ["neo-light-inset"]:
-          "inset 8px 8px 26px #376885, inset -8px -8px 26px #3d7293",
+          "inset 2px 5px 5px #e3e5e5, inset -2px -5px 5px #ffffff",
       },
       dropShadow: {
-        ["neo_light"]: ["5px 5px 10px #366582", "-5px -5px 10px #3e7596"],
+        ["neo"]: ["5px 5px 10px #e3e5e5", "-5px -5px 10px #ffffff"],
+        ["neo_contrast"]: [" 5px 5px 6px #a3a5a5", "-5px -5px 6px #ffffff"],
       },
     },
   },

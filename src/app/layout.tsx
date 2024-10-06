@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="">
       <body
-        className={`${rubik.variable} size-full h-[100vh] w-[100vw] font-sans`}
+        className={`${rubik.variable} size-full h-[100vh] w-[100vw] font-sans bg-white`}
       >
         <Header />
         <main className="h-[calc(100vh-3rem)] w-full overflow-y-auto">
