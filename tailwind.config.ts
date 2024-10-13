@@ -22,6 +22,7 @@ const config: Config = {
         black: "#262626",
         grey: "#A0A0A0",
         white: "#F4F6F6",
+        // white: "#e1e2e2",
       },
 
       boxShadow: {
@@ -32,6 +33,10 @@ const config: Config = {
       dropShadow: {
         ["neo"]: ["5px 5px 10px #e3e5e5", "-5px -5px 10px #ffffff"],
         ["neo_contrast"]: [" 5px 5px 6px #a3a5a5", "-5px -5px 6px #ffffff"],
+        ["neo_contrast_small"]: [
+          " 5px 5px 6px #e1e2e2",
+          "-5px -5px 6px #ffffff",
+        ],
       },
     },
   },
