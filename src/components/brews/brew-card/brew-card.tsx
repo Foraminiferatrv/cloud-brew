@@ -4,9 +4,12 @@ import Link from "next/link";
 
 type Props = {
   name: string;
-  description?: string;
-  image?: string;
-  updatedAt: string;
+  description?: string | null;
+  image?: string | null;
+  temperature?: number | null;
+  grind?: number | null;
+  weight?: number | null;
+  updatedAt: string | null | Date;
   id: number;
 };
 

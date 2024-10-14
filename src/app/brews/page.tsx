@@ -1,17 +1,11 @@
 import { BrewCard } from "@/components/brews/brew-card/brew-card";
 import AddBrew from "@/components/brews/add-brew/add-brew";
+import { getAllBrews } from "@/lib/brews/actions";
 
-export default function Brews() {
-  const brews = Array.from({ length: 10 }, (_, i) => ({
-    id: i,
-    name: `Brew ${i}`,
-    description: `Brew ${i} description`,
+export default async function Brews() {
+  const brews = await getAllBrews(2);
 
-    image:
-      i === 7 || i === 3 || i === 0
-        ? ""
-        : `https://picsum.photos/id/${i + 20}/200/300`,
-  }));
+  console.log({ brews });
 
   const renderBrewCards = () => {
     return brews.map((brew) => (
@@ -20,8 +14,11 @@ export default function Brews() {
         id={brew.id}
         name={brew.name}
         description={brew.description}
+        temperature={brew.temperature}
+        grind={brew.grind}
+        weight={brew.weight}
         image={brew.image}
-        updatedAt={""}
+        updatedAt={brew.updatedAt}
       />
     ));
   };

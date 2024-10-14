@@ -8,6 +8,20 @@
       "when": 1728831569220,
       "tag": "0000_careful_the_hood",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1728904797621,
+      "tag": "0001_past_scorpion",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1728917784718,
+      "tag": "0002_wealthy_squadron_sinister",
+      "breakpoints": true
     }
   ]
 }
