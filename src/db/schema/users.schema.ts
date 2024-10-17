@@ -1,6 +1,7 @@
 import { pgTable, serial, timestamp, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
+import { brew } from "@/db/schema/brew.schema";
 
 export const user = pgTable("user", {
   id: serial("id").primaryKey(),
@@ -24,3 +25,11 @@ export const user = pgTable("user", {
 });
 export const selectUserSchema = createSelectSchema(user);
 export const insertUserSchema = createInsertSchema(user);
+
+//RELATIONS
+
+export const UserTableRelations = relations(user, ({ one, many }) => {
+  return {
+    brews: many(brew),
+  };
+});

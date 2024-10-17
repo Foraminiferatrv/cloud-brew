@@ -3,9 +3,9 @@ import AddBrew from "@/components/brews/add-brew/add-brew";
 import { getAllBrews } from "@/lib/brews/actions";
 
 export default async function Brews() {
-  const brews = await getAllBrews(2);
-
-  console.log({ brews });
+  const brews = await getAllBrews(2).catch((e) => {
+    console.log(e);
+  });
 
   const renderBrewCards = () => {
     return brews.map((brew) => (

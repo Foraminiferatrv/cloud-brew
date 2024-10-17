@@ -1,13 +1,12 @@
-// Make sure to install the 'pg' package
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
+import { drizzle } from "drizzle-orm/postgres-js";
 
-// export const db = await drizzle(
-//   "node-postgres",
-//   process.env.DATABASE_URL as string,
-// );
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+import * as user_schema from "@/db/schema/users.schema";
+import * as brew_schema from "@/db/schema/brew.schema";
 
-export const db = drizzle(pool);
+import postgres from "postgres";
+
+const schema = { ...user_schema, ...brew_schema };
+
+const queryClient = postgres(process.env.DATABASE_URL as string);
+
+export const db = drizzle(queryClient, { schema });

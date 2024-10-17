@@ -9,7 +9,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { user } from "@/db/schema/users.schema";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 
 export const brew_events_enum = pgEnum("brew_event_type", [
   "GRIND_CHANGED",
@@ -71,3 +71,23 @@ export const brew_event = pgTable("brew_event", {
 
 export const selectBrewEventSchema = createSelectSchema(brew_event);
 export const insertBrewEventSchema = createInsertSchema(brew);
+
+//RELATIONS
+export const BrewTableRelations = relations(brew, ({ one, many }) => {
+  return {
+    owner: one(user, {
+      fields: [brew.owner_id],
+      references: [user.id],
+    }),
+    events: many(brew_event),
+  };
+});
+
+export const BrewEventTableRelations = relations(brew_event, ({ one }) => {
+  return {
+    brew: one(brew, {
+      fields: [brew_event.brew_id],
+      references: [brew.id],
+    }),
+  };
+});
