@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <div className="size-full bg-white">
       <BgLogo />
-      <section className="relative mx-auto max-w-screen-xl overflow-y-auto px-12 py-4">
+      <section className="relative mx-auto size-full max-w-screen-xl overflow-y-auto px-12 py-4">
         {children}
       </section>
     </div>

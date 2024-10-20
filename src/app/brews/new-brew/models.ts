@@ -5,4 +5,5 @@ export type NewBrewFormValues = {
   weight?: number | null;
   temperature?: number | null;
   image?: string | null;
+  method?: string | null;
 };

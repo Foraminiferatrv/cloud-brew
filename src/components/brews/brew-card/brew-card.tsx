@@ -17,17 +17,17 @@ export function BrewCard({ name, description, image, id }: Props) {
   return (
     <Link
       href={`/brews/${id}`}
-      className="cursor-pointer rounded-lg bg-white p-5 shadow-neo hover:scale-105"
+      className="cursor-pointer  rounded-lg bg-white  p-5 shadow-neo  hover:scale-105"
     >
-      <div className="mb-2 flex items-center gap-3">
-        <div className="size-12 overflow-hidden rounded-full">
+      <div className="mb-2 flex items-center  gap-3">
+        <div className="size-12 overflow-hidden rounded-full ">
           {image ? (
             <Image
               src={image}
               alt={name}
               width={40}
               height={40}
-              className="size-full"
+              className="size-full "
             />
           ) : (
             <ImgPlaceholder />
