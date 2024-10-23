@@ -102,7 +102,7 @@ export default function NewBrewPage() {
           onSubmit={handleSubmit(onSubmit)}
           className="flex h-full flex-col gap-4"
         >
-          <Label className="inline-flex items-center gap-2" htmlFor="name">
+          <Label className="flex w-[108px] items-center gap-2" htmlFor="name">
             <NameIcon className="size-5" /> Name *
           </Label>
           <Input
@@ -113,10 +113,10 @@ export default function NewBrewPage() {
 
           <Separator className="my-4" />
 
-          <div className="col-span-1 grid grid-cols-2 gap-4">
+          <div className="col-span-1 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="flex justify-between gap-2">
               <Label
-                className="inline-flex items-center gap-2"
+                className="flex w-[120px] items-center gap-2"
                 htmlFor="weight"
               >
                 <WeightIcon className="size-5" /> Weight (g)
@@ -129,8 +129,11 @@ export default function NewBrewPage() {
               />
             </div>
 
-            <div className="flex gap-2">
-              <Label className="inline-flex items-center gap-2" htmlFor="grind">
+            <div className="flex justify-between gap-2">
+              <Label
+                className="flex w-[108px] items-center gap-2"
+                htmlFor="grind"
+              >
                 <GrindIcon className="size-5" /> Grind size (clicks)
               </Label>
               <Input
@@ -141,11 +144,8 @@ export default function NewBrewPage() {
               />
             </div>
 
-            <div className="flex gap-2">
-              <Label
-                className="inline-flex items-center gap-2"
-                htmlFor="temperature"
-              >
+            <div className="flex justify-between gap-2">
+              <Label className="flex items-center gap-2" htmlFor="temperature">
                 <TemperatureIcon className="size-5" /> Temperature (°C)
               </Label>
               <Input
@@ -156,9 +156,9 @@ export default function NewBrewPage() {
               />
             </div>
 
-            <div className="flex">
-              <Label className="inline-flex items-center" htmlFor="method">
-                <PourOverIcon className="size-10" /> Brew method
+            <div className="flex justify-between">
+              <Label className="flex w-[120px] items-center" htmlFor="method">
+                <PourOverIcon className="size-5" /> Brew method
               </Label>
               <Select
                 name="method"
@@ -181,13 +181,13 @@ export default function NewBrewPage() {
 
           <Separator className="my-4" />
 
-          <Label className="inline-flex items-center gap-2" htmlFor="image">
+          <Label className="flex items-center gap-2" htmlFor="image">
             <ImageIcon className="size-5" /> Image
           </Label>
           <Input type="file" {...register("image")} />
 
           <Label
-            className="inline-flex items-center gap-2"
+            className="flex items-center gap-2"
             htmlFor="description"
           >
             <DescriptionIcon className="size-5" /> Description
