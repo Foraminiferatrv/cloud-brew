@@ -35,7 +35,7 @@ export const getBrewById = async (id: number | string | undefined) => {
 export const createBrew = async (data: NewBrewFormValues) => {
   const { name, grind, weight, temperature, image, description } = data;
 
-  const userId = 2; //TODO:Boilerplate remove
+  const userId = 1; //TODO:Boilerplate remove
 
   const targetUser = await db
     .select()

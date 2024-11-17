@@ -92,8 +92,8 @@ export default function NewBrewPage() {
   watch("method");
 
   return (
-    <div className="align-center flex h-full justify-center">
-      <Card className="max-h-[700px] min-h-[600px] max-w-[610px] p-4">
+    <div className="align-center flex justify-center">
+      <Card className="min-h-[600px] max-w-[610px] p-4">
         <h3 className="text-xl font-bold">Create New Brew</h3>
 
         <Separator className="my-4" />
@@ -116,29 +116,29 @@ export default function NewBrewPage() {
           <div className="col-span-1 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="flex justify-between gap-2">
               <Label
-                className="flex w-[120px] items-center gap-2"
+                className="flex min-w-[110px] items-center gap-2"
                 htmlFor="weight"
               >
                 <WeightIcon className="size-5" /> Weight (g)
               </Label>
               <Input
                 type="number"
-                className="w-[170px]"
-                placeholder="Enter coffee weight"
+                className="w-[140px]"
+                placeholder="Enter weight"
                 {...register("weight")}
               />
             </div>
 
             <div className="flex justify-between gap-2">
               <Label
-                className="flex w-[108px] items-center gap-2"
+                className="flex min-w-[110px] items-center gap-2"
                 htmlFor="grind"
               >
                 <GrindIcon className="size-5" /> Grind size (clicks)
               </Label>
               <Input
                 type="number"
-                className="w-[170px]"
+                className="w-[140px]"
                 placeholder="Enter grind size"
                 {...register("grind")}
               />
@@ -150,14 +150,14 @@ export default function NewBrewPage() {
               </Label>
               <Input
                 type="number"
-                className="w-[170px]"
+                className="w-[140px] text-ellipsis"
                 placeholder="Enter temperature"
                 {...register("temperature")}
               />
             </div>
 
-            <div className="flex justify-between">
-              <Label className="flex w-[120px] items-center" htmlFor="method">
+            <div className="flex justify-between gap-2">
+              <Label className="flex w-[110px] items-center" htmlFor="method">
                 <PourOverIcon className="size-5" /> Brew method
               </Label>
               <Select
@@ -169,8 +169,8 @@ export default function NewBrewPage() {
                   })
                 }
               >
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Select brew method">
+                <SelectTrigger className="w-[140px] [&:placeholer]:text-red-500">
+                  <SelectValue placeholder="Select method">
                     {renderSelectedMethod()}
                   </SelectValue>
                 </SelectTrigger>
@@ -186,13 +186,11 @@ export default function NewBrewPage() {
           </Label>
           <Input type="file" {...register("image")} />
 
-          <Label
-            className="flex items-center gap-2"
-            htmlFor="description"
-          >
+          <Label className="flex items-center gap-2" htmlFor="description">
             <DescriptionIcon className="size-5" /> Description
           </Label>
           <Textarea
+            className="min-h-[150px]"
             {...register("description")}
             placeholder="Add brew description..."
           />

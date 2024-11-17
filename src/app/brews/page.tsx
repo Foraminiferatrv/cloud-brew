@@ -3,7 +3,7 @@ import AddBrew from "@/components/brews/add-brew/add-brew";
 import { getAllBrews } from "@/lib/brews/actions";
 
 export default async function Brews() {
-  const brews = await getAllBrews(2).catch((e) => {
+  const brews = await getAllBrews(1).catch((e) => {
     console.log(e);
   });
 
