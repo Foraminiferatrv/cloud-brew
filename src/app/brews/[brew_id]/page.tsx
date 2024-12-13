@@ -31,6 +31,10 @@ export default async function Brew({ params: { brew_id } }: Props) {
     grind,
   } = result;
 
+  const handleEditBrewName = (name: string) => {
+    console.log(name);
+  };
+
   return (
     <div>
       <Link href={ROUTES.BREWS}>
@@ -45,8 +49,11 @@ export default async function Brew({ params: { brew_id } }: Props) {
       <div className="flex flex-col items-center justify-center gap-4">
         <Card className="min-h-[300px] max-w-[610px] p-4">
           <div className="">
-            <EditableInput value={name} />
-            {/*<Input type="text" placeholder="Enter brew name" />*/}
+            <EditableInput
+              value={name}
+              label="Brew name"
+              onChange={handleEditBrewName}
+            />
           </div>
 
           <div className="size-12 overflow-hidden rounded-full">
