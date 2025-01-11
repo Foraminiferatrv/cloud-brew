@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button";
 
 type Props = {
   value: string;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   label?: string;
+  formAction?: () => void;
 };
 
 const EditableInput = forwardRef<Element, Props>(
-  ({ value, onChange, label }: Props, ref) => {
+  ({ value, onChange, label, formAction }: Props, ref) => {
     const [isEdit, setIsEdit] = useState(false);
     const [inputValue, setInputValue] = useState<string>(value);
 
@@ -49,9 +50,10 @@ const EditableInput = forwardRef<Element, Props>(
               <Button
                 variant={"outline"}
                 size={"icon"}
-                onClick={handleSave}
+                onClick={handleSave && handleSave}
                 className="min-w-9 bg-green-300"
                 disabled={!inputValue}
+                // formAction={formAction && formAction}
               >
                 <Save />
               </Button>
@@ -66,8 +68,15 @@ const EditableInput = forwardRef<Element, Props>(
             </>
           ) : (
             <>
-              <span className="display-inline-block w-[200px] px-2">{value}</span>
-              <Button variant={"outline"} size={"icon"} onClick={handleEdit}>
+              <span className="display-inline-block w-[200px] px-2">
+                {value}
+              </span>
+              <Button
+                variant={"outline"}
+                size={"icon"}
+                onClick={handleEdit}
+                type="button"
+              >
                 <Pencil />
               </Button>
             </>

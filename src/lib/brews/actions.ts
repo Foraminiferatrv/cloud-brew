@@ -25,7 +25,7 @@ export const getBrewById = async (id: number | string | undefined) => {
   const result = await db.query.brew.findFirst({
     where: eq(brew.id, Number(id)),
   });
-  console.log({ result });
+
   return result;
   // if (result.length !== 0) {
   //   return result[0];

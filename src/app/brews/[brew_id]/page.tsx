@@ -17,7 +17,8 @@ type Props = {
   };
 };
 
-export default async function Brew({ params: { brew_id } }: Props) {
+export default async function Brew({ params }: Props) {
+  const { brew_id } = await params;
   const result = await getBrewById(brew_id);
 
   const {
@@ -31,8 +32,11 @@ export default async function Brew({ params: { brew_id } }: Props) {
     grind,
   } = result;
 
-  const handleEditBrewName = (name: string) => {
-    console.log(name);
+  const handleEditBrewName = async (formData: FormData) => {
+    "use server";
+    const newName = formData;
+    
+    console.log({ name });
   };
 
   return (
@@ -46,7 +50,7 @@ export default async function Brew({ params: { brew_id } }: Props) {
         </Button>
       </Link>
 
-      <div className="flex flex-col items-center justify-center gap-4">
+      <form className="flex flex-col items-center justify-center gap-4">
         <Card className="min-h-[300px] max-w-[610px] p-4">
           <div className="">
             <EditableInput
@@ -72,7 +76,7 @@ export default async function Brew({ params: { brew_id } }: Props) {
         </Card>
 
         <Card className="min-h-[300px] max-w-[610px] p-4"></Card>
-      </div>
+      </form>
     </div>
   );
 }

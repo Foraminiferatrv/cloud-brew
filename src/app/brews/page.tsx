@@ -4,7 +4,7 @@ import { getAllBrews } from "@/lib/brews/actions";
 
 export default async function Brews() {
   const brews = await getAllBrews(1).catch((e) => {
-    console.log(e);
+    // console.log(e);
   });
 
   const renderBrewCards = () => {
