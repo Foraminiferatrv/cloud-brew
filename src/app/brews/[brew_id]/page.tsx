@@ -35,7 +35,7 @@ export default async function Brew({ params }: Props) {
   const handleEditBrewName = async (formData: FormData) => {
     "use server";
     const newName = formData;
-    
+
     console.log({ name });
   };
 

@@ -3,4 +3,8 @@ export const ROUTES = {
   BREWS: "/brews",
   ABOUT: "/about",
   CONTACT: "/contact",
+
+  //AUTH
+  SIGNUP: "/signup",
+  LOGIN: "/login",
 };
