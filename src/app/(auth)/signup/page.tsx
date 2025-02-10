@@ -1,3 +1,5 @@
+"use client";
+
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -5,43 +7,18 @@ import { API_ROUTES } from "@/constants/api-routes.constant";
 import { redirect } from "next/navigation";
 import { ROUTES } from "@/constants/routes.constant";
 import { Label } from "@/components/ui/label";
+import signupAction from "./signupAction";
+import { useActionState } from "react";
+import Link from "next/link";
 
 export default function Signup() {
-  async function handleSubmit(formData: FormData) {
-    "use server";
-
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const username = formData.get("username");
-
-    console.log({ email, password, username });
-
-    const res: Response = await fetch(process.env.API_URL + API_ROUTES.SIGNUP, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-        username,
-      }),
-    });
-
-    const json = await res.json();
-
-    console.log(json);
-
-    if (res.ok) {
-      redirect(ROUTES.LOGIN);
-    }
-  }
+  const [error, formAction] = useActionState(signupAction, undefined);
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <h1>Signup</h1>
       <div className="flex w-full max-w-[400px] flex-col gap-4">
-        <form action={handleSubmit}>
+        <form action={formAction}>
           <Label htmlFor="username">Name</Label>
           <Input aria-label="Name" name="username" type="text" />
 
@@ -55,6 +32,11 @@ export default function Signup() {
             Submit
           </Button>
         </form>
+        {error && <p className="text-red-500">{error}</p>}
+
+        <Link className="font-bold" href={ROUTES.LOGIN}>
+          Login
+        </Link>
       </div>
     </div>
   );
